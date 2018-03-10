@@ -1,0 +1,2 @@
+class WomenAnswer < ApplicationRecord
+end
