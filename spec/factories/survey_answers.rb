@@ -1,5 +1,6 @@
 FactoryBot.define do
-  factory :men_answer do
+  factory :survey_answer do
+    gender 1
     body_type 1
     ss_size 1
     ss_fit 1
@@ -7,6 +8,14 @@ FactoryBot.define do
     ls_fit 1
     vj_size 1
     vj_fit 1
+    sprt_bra_size 1
+    sprt_bra_fit 1
+    sprt_bra_construction 1
+    sprt_bra_straps 1
+    sprt_bra_support 1
+    bad_sprt_bra_materials 1
+    bad_sprt_bra_material_name "MyString"
+    sprt_bra_frequency 1
     short_size 1
     short_fit 1
     pant_tight_size 1

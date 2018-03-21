@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310010440) do
+ActiveRecord::Schema.define(version: 20180321232519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,63 +31,8 @@ ActiveRecord::Schema.define(version: 20180310010440) do
     t.index ["email"], name: "index_customers_on_email", unique: true
   end
 
-  create_table "men_answers", force: :cascade do |t|
-    t.integer "body_type"
-    t.integer "ss_size"
-    t.integer "ss_fit"
-    t.integer "ls_size"
-    t.integer "ls_fit"
-    t.integer "vj_size"
-    t.integer "vj_fit"
-    t.integer "short_size"
-    t.integer "short_fit"
-    t.integer "pant_tight_size"
-    t.integer "pant_tight_fit"
-    t.integer "shoe_size"
-    t.integer "glove_size"
-    t.integer "hat_style"
-    t.integer "hat_size"
-    t.integer "top_fit"
-    t.integer "short_length"
-    t.integer "pant_fit"
-    t.integer "quad_size"
-    t.integer "pant_length"
-    t.integer "sleeve_length_issue"
-    t.integer "pant_length_issue"
-    t.integer "sock_height"
-    t.integer "built_in_underwear"
-    t.integer "hot_or_cold"
-    t.integer "workout_conditions"
-    t.integer "bad_colors"
-    t.integer "bad_materials"
-    t.integer "short_pockets_preference"
-    t.integer "running_short_side_splits"
-    t.integer "phone_carry_place"
-    t.integer "new_trend"
-    t.string "new_trend_text"
-    t.integer "upcoming_event"
-    t.string "upcoming_event_name"
-    t.string "upcoming_event_date"
-    t.integer "sport_choice_for_box"
-    t.integer "box_frequency"
-    t.integer "ss_need"
-    t.integer "ls_need"
-    t.integer "tank_need"
-    t.integer "vest_need"
-    t.integer "jacket_need"
-    t.integer "short_need"
-    t.integer "pant_need"
-    t.integer "hat_need"
-    t.integer "glove_need"
-    t.integer "sock_need"
-    t.integer "instagram_yn"
-    t.string "instagram"
-    t.text "anything_else"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "women_answers", force: :cascade do |t|
+  create_table "survey_answers", force: :cascade do |t|
+    t.integer "gender"
     t.integer "body_type"
     t.integer "ss_size"
     t.integer "ss_fit"
@@ -149,6 +94,9 @@ ActiveRecord::Schema.define(version: 20180310010440) do
     t.text "anything_else"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_survey_answers_on_customer_id"
   end
 
+  add_foreign_key "survey_answers", "customers"
 end

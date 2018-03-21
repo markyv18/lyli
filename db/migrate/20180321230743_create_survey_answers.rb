@@ -1,6 +1,7 @@
-class CreateMenAnswers < ActiveRecord::Migration[5.1]
+class CreateSurveyAnswers < ActiveRecord::Migration[5.1]
   def change
-    create_table :men_answers do |t|
+    create_table :survey_answers do |t|
+      t.integer :gender
       t.integer :body_type
       t.integer :ss_size
       t.integer :ss_fit
@@ -8,6 +9,14 @@ class CreateMenAnswers < ActiveRecord::Migration[5.1]
       t.integer :ls_fit
       t.integer :vj_size
       t.integer :vj_fit
+      t.integer :sprt_bra_size
+      t.integer :sprt_bra_fit
+      t.integer :sprt_bra_construction
+      t.integer :sprt_bra_straps
+      t.integer :sprt_bra_support
+      t.integer :bad_sprt_bra_materials
+      t.string :bad_sprt_bra_material_name
+      t.integer :sprt_bra_frequency
       t.integer :short_size
       t.integer :short_fit
       t.integer :pant_tight_size
