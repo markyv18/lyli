@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :customer do
+  factory :user do
     first_name "MyString"
     last_name "MyString"
     address1 "MyString"
@@ -9,5 +9,6 @@ FactoryBot.define do
     zipcode "MyString"
     email "MyString"
     phone_number "MyString"
+    role 0
   end
 end
