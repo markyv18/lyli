@@ -15,22 +15,6 @@ ActiveRecord::Schema.define(version: 20180321232519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "customers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "address1"
-    t.string "address2"
-    t.string "city"
-    t.string "state"
-    t.string "zipcode"
-    t.string "email", null: false
-    t.string "phone_number"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_customers_on_email", unique: true
-  end
-
   create_table "survey_answers", force: :cascade do |t|
     t.integer "gender"
     t.integer "body_type"
@@ -94,9 +78,26 @@ ActiveRecord::Schema.define(version: 20180321232519) do
     t.text "anything_else"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "customer_id"
-    t.index ["customer_id"], name: "index_survey_answers_on_customer_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_survey_answers_on_user_id"
   end
 
-  add_foreign_key "survey_answers", "customers"
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address1"
+    t.string "address2"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.string "email", null: false
+    t.string "phone_number"
+    t.string "password_digest"
+    t.integer "role", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  add_foreign_key "survey_answers", "users"
 end

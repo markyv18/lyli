@@ -1,0 +1,2 @@
+class LyliPro < ApplicationRecord
+end
