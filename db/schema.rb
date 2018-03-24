@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321232519) do
+ActiveRecord::Schema.define(version: 20180323211524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20180321232519) do
     t.integer "vj_size"
     t.integer "vj_fit"
     t.integer "sprt_bra_size"
-    t.integer "sprt_bra_fit"
     t.integer "sprt_bra_construction"
     t.integer "sprt_bra_straps"
     t.integer "sprt_bra_support"
@@ -79,6 +78,10 @@ ActiveRecord::Schema.define(version: 20180321232519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "sport_bra_size"
+    t.integer "sport_bra_encapsulation"
+    t.integer "short_form_fit"
+    t.integer "pant_tight_form_fit"
     t.index ["user_id"], name: "index_survey_answers_on_user_id"
   end
 
