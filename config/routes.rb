@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'  #Home
+  root 'welcome#index'  #Intro for first time visitors
+
+  get '/home', to: 'welcome#show'  #Home page
 
   get '/about', to: 'info#about' #About Us
 
