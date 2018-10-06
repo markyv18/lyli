@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::BaseController
+class Pro::UsersController < Pro::BaseController
 
   def index
     @users = User.all
@@ -8,24 +8,16 @@ class Admin::UsersController < Admin::BaseController
 
   end
 
-  def new
-
-  end
-
-  def create
-
-  end
-
-
   def edit
 
   end
 
   def update
+
   end
 
   def destroy
-    # @user = User.find(xxxxxxx.id)
+    # @user = User.find(xxxxxx.id)
     # session.clear
     # @user.destroy
     redirect_to admin_dashboard

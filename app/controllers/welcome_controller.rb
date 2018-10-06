@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
-  def index
+  def index # this action bypasses the first time visitor welcome sequence
     if current_user
       redirect_to home_path
     end

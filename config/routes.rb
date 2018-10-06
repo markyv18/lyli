@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'  #Intro for first time visitors
+  # root 'welcome#index'  #Intro sequence for first time visitors
+
+  root 'welcome#show' #Home page
 
   get '/home', to: 'welcome#show'  #Home page
 
@@ -12,17 +14,17 @@ Rails.application.routes.draw do
 
   get '/how-it-works', to: 'info#hiw' #How it works
 
-  get '/rental', to: 'info#rental'  #Rental
+  # get '/rental', to: 'info#rental'  #Rental
 
-  get '/co-op', to: 'info#coop'  #Co-op
+  # get '/co-op', to: 'info#coop'  #Co-op
 
-  # get '/', to: 'xxxx#yyyy' #Survey1
-  #
-  # get '/', to: 'xxxx#yyyy'   #Survey2
-  #
-  # get '/', to: 'xxxx#yyyy'  #Survey3
+  get '/', to: 'xxxx#yyyy' #Survey1
 
-  get '/dashboard', to: 'users#show'  #Users account page
+  get '/', to: 'xxxx#yyyy'   #Survey2
+
+  get '/', to: 'xxxx#yyyy'  #Survey3
+
+  # get '/dashboard', to: 'users#show'  #Users account page
 
   get '/auth/facebook', as: 'facebook_login'
   get '/auth/google', as: 'google_login'

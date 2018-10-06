@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180323211524) do
+ActiveRecord::Schema.define(version: 20180919194230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "fit"
+    t.integer "style"
+    t.integer "color"
+    t.integer "features"
+    t.integer "price_point"
+    t.integer "keep"
+    t.text "feedback"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "go_pro"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "survey_answers", force: :cascade do |t|
     t.integer "gender"
@@ -102,5 +122,7 @@ ActiveRecord::Schema.define(version: 20180323211524) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "items", "orders"
+  add_foreign_key "orders", "users"
   add_foreign_key "survey_answers", "users"
 end
